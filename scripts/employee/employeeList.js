@@ -1,31 +1,29 @@
-import { useEmployees } from "./employeeDataProvider"
-import { useComputers } from "../computer/computerDataProvider"
+import { useEmployees } from "./employeeDataProvider.js"
+import { useComputers } from "../computer/computerDataProvider.js"
+import { employee } from "./Employee.js"
+ 
+const contentTarget = document.querySelector(".employees")
 
-const contentTarget = document.querySelector(".family")
+    const render = employeesToRender => {
+        const computers = useComputers()
+      
 
-export const FamilyList = () => {
-    const employees = useEmployees()
-    const computers = useComputers()
-  
-
-    const render = () => {
-        contentTarget.innerHTML = employees.map(employee => {
-            // Find related chore ids
-            let relatedChores = peopleChores.filter(pc => pc.familyMemberId === person.id)
-
-            // Convert the array from relationship objects to chore objects
-            relatedChores = relatedChores.map(rc => {
-                return chores.find(chore => chore.id === rc.choreId)
-            })
-
-            // Get HTML representation of product
-            const html = FamilyMember(person, relatedChores)
-
-            return html
-        }).join("")
+        contentTarget.innerHTML = employeesToRender.map(
+            (employeeObject) => {
+            //Find the related computer for the current employee
+            const foundComputer = computers.find(
+            (computer) => {
+                return computer.id === employeeObject.computerId //return the computer.Id = the computerId on employee object in array
+            }
+            )
+            return employee(employeeObject, foundComputer)  //
+        }
+        ).join("")
     }
 
-    render()
+ 
+export const EmployeeList = () => {
+    const employees = useEmployees()
+    
+    render(employees)
 }
-
-export default FamilyList
