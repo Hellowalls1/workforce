@@ -1,13 +1,9 @@
-const FamilyMember = (employee, computer) => {
+export const employee = (employeeObject, computerObject) => {
     return `
-        <section class="employeeData">
-             <h2>${employee.firstName} ${employee.lastName}</h2>
-            <article>
-                ${
-                        computers.map(computer => `<div>${computer.model} ${computer.year}</li>`).join("")
-                    }
-               
-            </article>
+        <section class="employee">
+        <h2>${employeeObject.firstName} ${employeeObject.lastName}</h2>
+        <div>${employeeObject.age}</div>
+        <div>Current Computer: ${computerObject.model} ${computerObject.year}</div>
         </section>
     `
 }
