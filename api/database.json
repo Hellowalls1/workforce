@@ -33,14 +33,16 @@
             "firstName": "Rainu",
             "lastName": "Ittycheriah",
             "age": 43,
-            "computerId": 5
+            "computerId": 5,
+            "departmentId": 1
         },
         {
             "id": 2,
             "firstName": "John",
             "lastName": "Doe",
             "age": 98,
-            "computerId": 4
+            "computerId": 4,
+            "departmentId": 2
 
         },
         {
@@ -48,25 +50,38 @@
             "firstName": "Michael",
             "lastName": "Manitoba",
             "age": 34,
-            "computerId": 3
-
-
+            "computerId": 3,
+            "departmentId": 3
         },
         {
             "id": 4,
             "firstName": "Sarah",
             "lastName": "Jane",
             "age": 56,
-            "computerId": 2
-
+            "computerId": 2,
+            "departmentId": 2
         },
         {
             "id": 5,
             "firstName": "Pika",
             "lastName": "Chu",
             "age": 45,
-            "computerId": 1
+            "computerId": 1,
+            "departmentId": 1
+        }
+    ],
+    "departments" : [
+        {
+            "id": 1,
+            "name": "Accounting"
+        },
+        {
+            "id": 2,
+            "name": "Development"
+        },
+        {
+            "id": 3,
+            "name": "Customer Service"
         }
     ]
-
 }
