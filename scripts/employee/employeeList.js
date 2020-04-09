@@ -2,12 +2,15 @@ import { useEmployees } from "./employeeDataProvider.js"
 import { useComputers } from "../computer/computerDataProvider.js"
 import { employee } from "./Employee.js"
 import { useDepartments } from "../department/departmentDataProvider.js"
+import { useOffices } from "../offices/officeDataProvider.js"
  
 const contentTarget = document.querySelector(".employees")
 
     const render = employeesToRender => {
+        //getting the data
         const computers = useComputers()
         const departments = useDepartments()
+        const offices = useOffices()
 
         contentTarget.innerHTML = employeesToRender.map(
             (employeeObject) => {
@@ -22,7 +25,13 @@ const contentTarget = document.querySelector(".employees")
                 return department.id === employeeObject.departmentId
                 }
             )
-            return employee(employeeObject, foundComputer, foundDepartment)  //
+            const foundOffice = offices.find(
+                (office) => {
+                return office.id === employeeObject.officeId
+                }
+            )
+            return employee(employeeObject, foundComputer, foundDepartment, foundOffice)  //
+            
         }
         ).join("")
     }
