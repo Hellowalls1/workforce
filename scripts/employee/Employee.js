@@ -1,3 +1,4 @@
+//html representation of each employee
 export const employee = (employeeObject, computerObject, departmentObject, officeObject) => {
     return `
         <div class="employee">
