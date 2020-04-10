@@ -3,6 +3,8 @@ import { useComputers } from "../computer/computerDataProvider.js"
 import { employee } from "./Employee.js"
 import { useDepartments } from "../department/departmentDataProvider.js"
 import { useOffices } from "../offices/officeDataProvider.js"
+import { useEmployeeCustomers } from "../EmployeeCustomer/EmployeeCustomerProvider.js"
+import { useCustomers } from "../customer/CustomerProvider.js"
  
 //where the things will end up
 const contentTarget = document.querySelector(".employees")
@@ -16,6 +18,8 @@ const contentTarget = document.querySelector(".employees")
         const computers = useComputers()
         const departments = useDepartments()
         const offices = useOffices()
+        const employeeCustomers = useEmployeeCustomers()
+        const customers = useCustomers()
 
         contentTarget.innerHTML = employeesToRender.map(
             (employeeObject) => {
@@ -37,7 +41,23 @@ const contentTarget = document.querySelector(".employees")
                 return office.id === employeeObject.officeId
                 }
             )
-            return employee(employeeObject, foundComputer, foundDepartment, foundOffice)  //
+
+            //get all the customer relationships for the current employee
+            const thisEmployeesCustomerRelationships = employeeCustomers.filter( 
+                employeeCustomerRelationship => {
+                    return employeeObject.id === employeeCustomerRelationship.employeeId
+                }
+            )
+
+            //for each relationship, convert using map the corresponding customer object 
+            const theMatchingCustomers = thisEmployeesCustomerRelationships.map( //itterates over each emp/cust relationship object
+                rel => {
+                const customer = customers.find(cust => rel.customerId === cust.id) //rel and cust are placeholders until data comes through
+               return customer //for map
+            }
+            )
+            
+            return employee(employeeObject, foundComputer, foundDepartment, foundOffice, theMatchingCustomers)  //
             
         }
         ).join("")
