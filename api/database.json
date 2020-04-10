@@ -101,5 +101,79 @@
             "id": 3,
             "name": "New York"
         }
+    ],
+    "customers": [
+        {
+            "id": 1,
+            "name": "Juniper Distribution"
+        },
+        {
+            "id": 2,
+            "name": "Northwest Distribution"
+        },
+        {
+            "id": 3,
+            "name": "Pacific Distribution"
+        },
+        {
+            "id": 4,
+            "name": "Atlantic Distribution"
+        },
+        {
+            "id": 5,
+            "name": "Galactic Distribution"
+        }
+    ],
+    "employeeCustomers": [
+        {
+            "id": 1,
+            "customerId": 1,
+            "employeeId": 1
+        },
+        {
+            "id": 2,
+            "customerId": 1,
+            "employeeId": 2
+        },
+        {
+            "id": 3,
+            "customerId": 2,
+            "employeeId": 2
+        },
+        {
+            "id": 4,
+            "customerId": 2,
+            "employeeId": 1
+        },
+        {
+            "id": 5,
+            "customerId": 3,
+            "employeeId": 4
+        },
+        {
+            "id": 6,
+            "customerId": 3,
+            "employeeId": 3
+        },
+        {
+            "id": 7,
+            "customerId": 4,
+            "employeeId": 3
+        },
+        {
+            "id": 8,
+            "customerId": 4,
+            "employeeId": 5
+        },
+        {
+            "id": 9,
+            "customerId": 5,
+            "employeeId": 4
+        },
+        {
+            "id": 10,
+            "customerId": 5,
+            "employeeId": 5
+        }
     ]
 }
